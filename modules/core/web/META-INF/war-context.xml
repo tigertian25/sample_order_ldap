@@ -1,0 +1,24 @@
+<Context>
+    <!-- Database connection -->
+    <Resource driverClassName="org.hsqldb.jdbc.JDBCDriver"
+              maxIdle="2"
+              maxTotal="20"
+              maxWaitMillis="5000"
+              name="jdbc/CubaDS"
+              password=""
+              type="javax.sql.DataSource"
+              url="jdbc:hsqldb:hsql://localhost/inspectionrecord"
+              username="sa"/>
+    <!-- Switch off session serialization -->
+    <Manager pathname=""/>
+    <!--Data store 'ERPDB' connection-->
+    <Resource driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+              maxIdle="2"
+              maxTotal="20"
+              maxWaitMillis="5000"
+              name="jdbc/ERPDB"
+              password="DOsqQjZ05h0yjRtI1YaI"
+              type="javax.sql.DataSource"
+              url="jdbc:sqlserver://localhost;databaseName=ERPDB"
+              username="sample_track"/>
+</Context>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.artwell.sampleordersheet.web.etstylesize.EtStyleSizeEdit"
+        datasource="etStyleSizeDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.artwell.sampleordersheet.web.etstylesize">
+    <dsContext>
+        <datasource id="etStyleSizeDs"
+                    class="com.artwell.sampleordersheet.entity.EtStyleSize"/>
+    </dsContext>
+    <dialogMode forceDialog="true"
+                height="AUTO"
+                width="600"/>
+    <layout expand="scrollBox"
+            spacing="true">
+        <scrollBox id="scrollBox"
+                   spacing="true">
+            <fieldGroup id="fieldGroup"
+                        align="TOP_CENTER"
+                        datasource="etStyleSizeDs">
+                <column width="250px">
+                    <field caption="序号："
+                           property="sIndex"/>
+                    <field caption="部位："
+                           property="xPart"/>
+                    <field caption="度法："
+                           property="xRule"/>
+                    <field property="xLen1"/>
+                    <field property="xLen2"/>
+                    <field property="xLen3"/>
+                    <field property="xLen4"/>
+                    <field property="xLen5"/>
+                    <field property="xLen6"/>
+                    <field property="xLen7"/>
+                    <field property="xLen8"/>
+                    <field property="xLen9"/>
+                    <field property="xLen10"/>
+                    <field property="xLen11"/>
+                    <field property="xLen12"/>
+                    <field caption="公差（+）："
+                           property="xLoss"/>
+                    <field caption="公差（-）："
+                           property="xLoss2"/>
+                </column>
+            </fieldGroup>
+        </scrollBox>
+        <frame id="windowActions"
+               screen="extendedEditWindowActions"/>
+    </layout>
+</window>

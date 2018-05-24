@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.artwell.sampleordersheet.web.mtyarn.MtYarnBrowse"
+        focusComponent="mtYarnsTable"
+        lookupComponent="mtYarnsTable"
+        messagesPack="com.artwell.sampleordersheet.web.mtyarn">
+    <dsContext>
+        <groupDatasource id="mtYarnsDs"
+                         class="com.artwell.sampleordersheet.entity.MtYarn"
+                         view="_local">
+            <query>
+                <![CDATA[select e from sampleordersheet$MtYarn e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="mtYarnsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="mtYarnsTable"
+                datasource="mtYarnsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="mtYarnsTable"
+                    width="100%">
+            <columns>
+                <column id="xName"/>
+                <column id="xCode"/>
+            </columns>
+            <rows datasource="mtYarnsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true"/>
+        </groupTable>
+    </layout>
+</window>

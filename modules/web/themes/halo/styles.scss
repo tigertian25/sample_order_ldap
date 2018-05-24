@@ -1,0 +1,21 @@
+@import "halo-defaults";
+@import "com.artwell.sampleordersheet/halo-ext-defaults";
+@import "app-components";
+@import "com.artwell.sampleordersheet/halo-ext";
+
+.halo {
+  // include auto-generated app components SCSS
+  @include app_components;
+  
+  @include com_artwell_sampleordersheet-halo-ext;
+.v-grid-footer .v-grid-cell{
+	padding: 0;
+	
+}
+.v-grid-footer .v-grid-cell div{
+	text-align: center;
+	font-size: 12px;
+	background-color: white;
+	}
+
+}

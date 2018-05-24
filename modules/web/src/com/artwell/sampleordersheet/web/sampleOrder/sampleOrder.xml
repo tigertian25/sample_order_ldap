@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="com.artwell.sampleordersheet.web.sampleOrder.Sampleorder"
+        messagesPack="com.artwell.sampleordersheet.web.sampleOrder">
+    <dsContext>
+        <groupDatasource id="etStyleSizesDs"
+                         allowCommit="false"
+                         class="com.artwell.sampleordersheet.entity.EtStyleSize"
+                         refreshMode="NEVER"/>
+        <groupDatasource id="seZusDs"
+                         allowCommit="false"
+                         class="com.artwell.sampleordersheet.entity.SeZu"
+                         refreshMode="NEVER"/>
+        <valueCollectionDatasource id="paiSeYongLiaoDs"/>
+        <datasource id="styleDs"
+                    allowCommit="false"
+                    class="com.artwell.sampleordersheet.entity.Style"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout>
+        <split height="100%"
+               orientation="horizontal"
+               pos="44"
+               width="100%">
+            <scrollBox height="100%">
+                <cssLayout margin="true,false,false,false"
+                           stylename="card"
+                           width="210mm">
+                    <vbox margin="true,false,true,true">
+                        <hbox height="20mm"
+                              width="100%">
+                            <vbox align="MIDDLE_LEFT"
+                                  height="78px"
+                                  spacing="true"
+                                  width="190mm">
+                                <label id="label"
+                                       align="MIDDLE_CENTER"
+                                       stylename="bold huge h1"
+                                       value="Ultramax"/>
+                                <label id="label_1"
+                                       align="MIDDLE_CENTER"
+                                       stylename="bold h3"
+                                       value="Jiaxing Ultramax Cashmere Products Limited"/>
+                            </vbox>
+                            <vbox align="MIDDLE_RIGHT"
+                                  height="20mm"
+                                  margin="false,true,false,false"
+                                  width="50mm">
+                                <hbox align="BOTTOM_CENTER"
+                                      margin="false,false,false,true"
+                                      stylename="noborder-input">
+                                    <label align="MIDDLE_LEFT"
+                                           value="NO:"/>
+                                    <textField id="label_2"
+                                               datasource="styleDs"
+                                               datatype="string"
+                                               height="19px"
+                                               property="sNumber"
+                                               value="sp-1800588"/>
+                                </hbox>
+                                <hbox align="TOP_CENTER"
+                                      height="10mm"
+                                      margin="false,true,false,false">
+                                    <image id="image"
+                                           align="TOP_CENTER"
+                                           scaleMode="CONTAIN">
+                                        <theme path="code.png"/>
+                                    </image>
+                                </hbox>
+                                <hbox align="TOP_CENTER"
+                                      margin="false,true,false,false">
+                                    <label id="label_3"
+                                           datasource="styleDs"
+                                           property="sID"
+                                           value="531411520"/>
+                                </hbox>
+                            </vbox>
+                        </hbox>
+                        <hbox margin="false,true,false,false"
+                              width="100%">
+                            <vbox id="labelVbox"
+                                  margin="false,true,false,true"
+                                  width="110mm">
+                                <hbox stylename="hbox-margin-bottom-size13">
+                                    <label value="Sample Type 辦类："/>
+                                    <textField id="label_5"
+                                               datasource="styleDs"
+                                               datatype="string"
+                                               height="19px"
+                                               property="xSampleType"
+                                               value="PP Sample  PP办"
+                                               width="60mm"/>
+                                </hbox>
+                                <hbox stylename="hbox-margin-bottom-size13">
+                                    <label value="Date of issue 發單日期："/>
+                                    <textField id="label_6"
+                                               datatype="string"
+                                               height="19px"
+                                               value="2018/2/23"
+                                               visible="false"/>
+                                    <dateField id="styleDate1"
+                                               datasource="styleDs"
+                                               dateFormat="yyyy/MM/dd"
+                                               height="19px"
+                                               property="xDate1"
+                                               resolution="DAY"
+                                               stylename="datefield-small"/>
+                                </hbox>
+                                <hbox stylename="hbox-margin-bottom-size13">
+                                    <label value="Client 客名："/>
+                                    <textField id="label_7"
+                                               datasource="styleDs"
+                                               datatype="string"
+                                               height="19px"
+                                               property="rCust"
+                                               value="Burberry CHW"/>
+                                </hbox>
+                                <hbox stylename="hbox-margin-bottom-size13">
+                                    <label value="Fty Style NO.工廠款号： "/>
+                                    <textField id="label_8"
+                                               datasource="styleDs"
+                                               datatype="string"
+                                               height="19px"
+                                               property="xStyleNo"
+                                               value="B213740"/>
+                                </hbox>
+                                <hbox stylename="hbox-margin-bottom-size13">
+                                    <label value="Client Ref.NO.客款號："/>
+                                    <textField id="label_9"
+                                               datasource="styleDs"
+                                               datatype="string"
+                                               height="19px"
+                                               property="xCustStyleNo"
+                                               value="TB5-GAEL"/>
+                                </hbox>
+                                <hbox stylename="hbox-margin-bottom-size13">
+                                    <label value="Contract Weight 指定重量："/>
+                                    <textField id="label_10"
+                                               datasource="styleDs"
+                                               datatype="string"
+                                               height="19px"
+                                               property="xWGT"
+                                               value="重量"/>
+                                </hbox>
+                                <hbox stylename="hbox-margin-bottom-size13">
+                                    <label value="Season 季度："/>
+                                    <textField id="label_11"
+                                               datasource="styleDs"
+                                               datatype="string"
+                                               height="19px"
+                                               property="xSeason"
+                                               value="W18"/>
+                                </hbox>
+                                <hbox stylename="hbox-margin-bottom-size13">
+                                    <label value="Gauge 针數："/>
+                                    <textField id="label_12"
+                                               datasource="styleDs"
+                                               datatype="string"
+                                               height="19px"
+                                               property="xGauge"
+                                               value="12GG"/>
+                                </hbox>
+                                <hbox stylename="hbox-margin-bottom-size13">
+                                    <label value="Yarn 毛料："/>
+                                    <textField id="label_13"
+                                               datasource="styleDs"
+                                               datatype="string"
+                                               height="19px"
+                                               property="xYSpec"
+                                               value=" 2/26，100%羊绒"
+                                               width="60mm"/>
+                                </hbox>
+                                <hbox stylename="hbox-margin-bottom-size13">
+                                    <vbox width="AUTO">
+                                        <label value="Description 款式說明："/>
+                                        <textField id="label_14"
+                                                   datasource="styleDs"
+                                                   datatype="string"
+                                                   height="19px"
+                                                   property="xStyle"
+                                                   value="男童圆领长袖跌膊套头衫"
+                                                   width="100mm"/>
+                                        <textField id="label_15"
+                                                   datasource="styleDs"
+                                                   datatype="string"
+                                                   property="xWeaveDesc"
+                                                   value="前幅上半身织单边间色，BURBERRY嵌花+下半身三角形毛巾织法,后幅 上半身织单边间色+下半身织桂花针A色,袖子上半部分织A色+下半部分 三角形毛巾织法,领贴织1x1双A色2根进,衫脚/袖咀织1x1单G色2根进"
+                                                   visible="false"
+                                                   width="95mm"/>
+                                        <textArea id="styleWeaveDesc"
+                                                  datasource="styleDs"
+                                                  property="xWeaveDesc"
+                                                  resizableDirection="BOTH"
+                                                  width="100mm"/>
+                                    </vbox>
+                                </hbox>
+                            </vbox>
+                            <vbox align="TOP_RIGHT"
+                                  margin="false,false,false,true"
+                                  width="98mm">
+                                <hbox margin="false,false,true,false"
+                                      spacing="true">
+                                    <label align="MIDDLE_LEFT"
+                                           value="Completion Date交辦日期"/>
+                                    <textField id="label_4"
+                                               datatype="string"
+                                               height="19px"
+                                               value=" 2018/2/28"
+                                               visible="false"/>
+                                    <dateField id="styleDate2"
+                                               align="MIDDLE_LEFT"
+                                               datasource="styleDs"
+                                               dateFormat="yyyy/MM/dd"
+                                               height="19px"
+                                               property="xDate2"
+                                               resolution="DAY"
+                                               stylename="datefield-small"/>
+                                </hbox>
+                                <hbox height="70mm"
+                                      spacing="true"
+                                      stylename="card"
+                                      width="93mm">
+                                    <image id="image_1"
+                                           height="100%"
+                                           scaleMode="SCALE_DOWN"
+                                           width="100%">
+                                        <theme path="qianfu.png"/>
+                                    </image>
+                                </hbox>
+                                <hbox spacing="true">
+                                    <hbox>
+                                        <label value="原辦: "/>
+                                        <checkBox/>
+                                        <label value="有"/>
+                                        <checkBox/>
+                                        <label value="无"/>
+                                    </hbox>
+                                    <hbox>
+                                        <checkBox/>
+                                        <label value="實圖做參考"/>
+                                    </hbox>
+                                    <hbox>
+                                        <checkBox/>
+                                        <label value="用后要退返H.K."/>
+                                    </hbox>
+                                </hbox>
+                            </vbox>
+                        </hbox>
+                        <hbox margin="false,true,true,false"
+                              width="100%">
+                            <vbox margin="false,true,false,true"
+                                  responsive="true">
+                                <vbox>
+                                    <dataGrid id="seZusTable"
+                                              columnsCollapsingAllowed="false"
+                                              datasource="seZusDs"
+                                              editorBuffered="false"
+                                              editorEnabled="true"
+                                              reorderingAllowed="false"
+                                              selectionMode="NONE"
+                                              settingsEnabled="false"
+                                              sortable="false"
+                                              stylename="no-stripes "
+                                              width="100%">
+                                        <actions>
+                                            <action id="create"
+                                                    caption="Add or Edit Color"/>
+                                            <action id="remove"
+                                                    caption="Delete Color"
+                                                    invoke="onDeleteSeZu"/>
+                                        </actions>
+                                        <columns>
+                                            <column id="seZuName"
+                                                    align="CENTER"
+                                                    caption="色  组/色  号"
+                                                    description="色  组/色  号"
+                                                    editable="false"
+                                                    property="seZuName"
+                                                    sortable="false"/>
+                                            <column id="xQty1"
+                                                    align="CENTER"
+                                                    property="xQty1">
+                                                <formatter class="com.artwell.sampleordersheet.web.formatter.QtyFormatter"/>
+                                            </column>
+                                            <column id="xQty2"
+                                                    align="CENTER"
+                                                    property="xQty2">
+                                                <formatter class="com.artwell.sampleordersheet.web.formatter.QtyFormatter"/>
+                                            </column>
+                                            <column id="xQty3"
+                                                    align="CENTER"
+                                                    property="xQty3">
+                                                <formatter class="com.artwell.sampleordersheet.web.formatter.QtyFormatter"/>
+                                            </column>
+                                            <column id="xQty4"
+                                                    align="CENTER"
+                                                    property="xQty4">
+                                                <formatter class="com.artwell.sampleordersheet.web.formatter.QtyFormatter"/>
+                                            </column>
+                                            <column id="xQty5"
+                                                    align="CENTER"
+                                                    property="xQty5">
+                                                <formatter class="com.artwell.sampleordersheet.web.formatter.QtyFormatter"/>
+                                            </column>
+                                            <column id="xQty6"
+                                                    align="CENTER"
+                                                    property="xQty6">
+                                                <formatter class="com.artwell.sampleordersheet.web.formatter.QtyFormatter"/>
+                                            </column>
+                                            <column id="xQty7"
+                                                    align="CENTER"
+                                                    property="xQty7">
+                                                <formatter class="com.artwell.sampleordersheet.web.formatter.QtyFormatter"/>
+                                            </column>
+                                            <column id="xQty8"
+                                                    align="CENTER"
+                                                    property="xQty8">
+                                                <formatter class="com.artwell.sampleordersheet.web.formatter.QtyFormatter"/>
+                                            </column>
+                                            <column id="xQty9"
+                                                    align="CENTER"
+                                                    property="xQty9">
+                                                <formatter class="com.artwell.sampleordersheet.web.formatter.QtyFormatter"/>
+                                            </column>
+                                            <column id="xQty10"
+                                                    align="CENTER"
+                                                    property="xQty10">
+                                                <formatter class="com.artwell.sampleordersheet.web.formatter.QtyFormatter"/>
+                                            </column>
+                                            <column id="xQty11"
+                                                    align="CENTER"
+                                                    property="xQty11">
+                                                <formatter class="com.artwell.sampleordersheet.web.formatter.QtyFormatter"/>
+                                            </column>
+                                            <column id="xQty12"
+                                                    align="CENTER"
+                                                    property="xQty12">
+                                                <formatter class="com.artwell.sampleordersheet.web.formatter.QtyFormatter"/>
+                                            </column>
+                                            <column id="sumQty"
+                                                    align="CENTER"
+                                                    caption="合计"
+                                                    editable="false"
+                                                    property="sumQty">
+                                                <formatter class="com.artwell.sampleordersheet.web.formatter.QtyFormatter"/>
+                                            </column>
+                                        </columns>
+                                    </dataGrid>
+                                    <table id="paiSeYongLiaoTable"
+                                           columnControlVisible="false"
+                                           contextMenuEnabled="false"
+                                           editable="true"
+                                           reorderingAllowed="false"
+                                           settingsEnabled="false"
+                                           showSelection="false"
+                                           sortable="false"
+                                           stylename="no-stripes tiny"
+                                           width="100%">
+                                        <columns/>
+                                        <rows datasource="paiSeYongLiaoDs"/>
+                                    </table>
+                                    <hbox width="100%">
+                                        <vbox width="150mm">
+                                            <dataGrid id="etStyleSizesDataGrid"
+                                                      columnsCollapsingAllowed="false"
+                                                      datasource="etStyleSizesDs"
+                                                      editorBuffered="false"
+                                                      editorEnabled="true"
+                                                      reorderingAllowed="false"
+                                                      selectionMode="NONE"
+                                                      settingsEnabled="false"
+                                                      sortable="false"
+                                                      stylename="no-stripes small"
+                                                      width="100%">
+                                                <actions>
+                                                    <action id="addSize"
+                                                            caption="Add Size"
+                                                            invoke="onAddSize"/>
+                                                    <action id="editUnit"
+                                                            caption="Edit Unit"
+                                                            invoke="onEditUnit"/>
+                                                    <action id="remove"
+                                                            caption="Delete Size"
+                                                            invoke="onDeleteSize"/>
+                                                </actions>
+                                                <columns>
+                                                    <column id="sIndex"
+                                                            collapsible="false"
+                                                            property="sIndex"
+                                                            resizable="false"
+                                                            sortable="false"
+                                                            width="30"/>
+                                                    <column id="xPart"
+                                                            collapsible="false"
+                                                            property="xPart"
+                                                            resizable="false"
+                                                            sortable="false"
+                                                            width="75"/>
+                                                    <column id="xRule"
+                                                            collapsible="false"
+                                                            property="xRule"
+                                                            resizable="false"
+                                                            sortable="false"/>
+                                                    <column id="xLen1"
+                                                            collapsible="false"
+                                                            maximumWidth="50"
+                                                            property="xLen1"
+                                                            resizable="false"
+                                                            sortable="false"/>
+                                                    <column id="xLen2"
+                                                            collapsible="false"
+                                                            maximumWidth="50"
+                                                            property="xLen2"
+                                                            resizable="false"
+                                                            sortable="false"/>
+                                                    <column id="xLen3"
+                                                            collapsible="false"
+                                                            maximumWidth="50"
+                                                            property="xLen3"
+                                                            resizable="false"
+                                                            sortable="false"/>
+                                                    <column id="xLen4"
+                                                            collapsible="false"
+                                                            maximumWidth="50"
+                                                            property="xLen4"
+                                                            resizable="false"
+                                                            sortable="false"/>
+                                                    <column id="xLen5"
+                                                            collapsible="false"
+                                                            maximumWidth="50"
+                                                            property="xLen5"
+                                                            resizable="false"
+                                                            sortable="false"/>
+                                                    <column id="xLen6"
+                                                            collapsible="false"
+                                                            maximumWidth="50"
+                                                            property="xLen6"
+                                                            resizable="false"
+                                                            sortable="false"/>
+                                                    <column id="xLen7"
+                                                            collapsible="false"
+                                                            maximumWidth="50"
+                                                            property="xLen7"
+                                                            resizable="false"
+                                                            sortable="false"/>
+                                                    <column id="xLen8"
+                                                            collapsible="false"
+                                                            maximumWidth="50"
+                                                            property="xLen8"
+                                                            resizable="false"
+                                                            sortable="false"/>
+                                                    <column id="xLen9"
+                                                            collapsible="false"
+                                                            maximumWidth="50"
+                                                            property="xLen9"
+                                                            resizable="false"
+                                                            sortable="false"/>
+                                                    <column id="xLen10"
+                                                            collapsible="false"
+                                                            maximumWidth="50"
+                                                            property="xLen10"
+                                                            resizable="false"
+                                                            sortable="false"/>
+                                                    <column id="xLen11"
+                                                            collapsible="false"
+                                                            maximumWidth="50"
+                                                            property="xLen11"
+                                                            resizable="false"
+                                                            sortable="false"/>
+                                                    <column id="xLen12"
+                                                            collapsible="false"
+                                                            maximumWidth="50"
+                                                            property="xLen12"
+                                                            resizable="false"
+                                                            sortable="false"/>
+                                                    <column id="xLoss"
+                                                            collapsible="false"
+                                                            maximumWidth="50"
+                                                            property="xLoss"
+                                                            resizable="false"
+                                                            sortable="false"/>
+                                                    <column id="xLoss2"
+                                                            collapsible="false"
+                                                            maximumWidth="50"
+                                                            property="xLoss2"
+                                                            resizable="false"
+                                                            sortable="false"/>
+                                                </columns>
+                                            </dataGrid>
+                                            <buttonsPanel enable="false"
+                                                          visible="false">
+                                                <button id="addSizeButton"
+                                                        action="etStyleSizesDataGrid.addSize"
+                                                        visible="false"/>
+                                            </buttonsPanel>
+                                        </vbox>
+                                        <vbox align="TOP_RIGHT"
+                                              stylename="noborder-input"
+                                              width="47mm">
+                                            <textField id="label_19"
+                                                       datasource="styleDs"
+                                                       datatype="string"
+                                                       height="19px"
+                                                       property="xKindName"
+                                                       value="注意事项"
+                                                       width="46mm"/>
+                                            <textArea id="label_20"
+                                                      datasource="styleDs"
+                                                      datatype="string"
+                                                      height="100mm"
+                                                      property="xNote"
+                                                      resizableDirection="BOTH"
+                                                      stylename="tiny"
+                                                      value="销售版中的试身样意见如下（别针办退回 ：8Y/12Y）： 1.8Y的前领深尺寸改为7cm，请跟准新的 尺寸表。 2.8Y和12Y的黑色间条位置都是肩顶下11 cm，注意，后片的黑色间条位置要和前片 在同一直线上。 3.8Y的下袖长尺寸改为37cm，请跟准新 的尺寸表。注意，是下袖长。 4.8Y的毛巾织法从左上角到右下角的排列 是：3列浅紫灰7177，然后3列中花灰717 0，然后3列深花灰7167，最后2列炭灰71 69；12Y的毛巾排列和8Y一样，所以请相 应放大三角形大小，请看客人别在12Y上 的彩稿，并跟准。 5.嵌花字母“BURBERRY”最底部，要和 黑色底在同一行上，即黑色底不用再多一 行。 6.下摆和袖口罗纹多加一根，要不然罗纹 太松垮。 7.整件衣服的拉密偏松，请尽量地加紧拉 密。注意，手感要松软 请按以上意见重新提供8Y和12Y的PP样给 客人批复。时间紧迫，客人3月初就要过 来工厂试身，劳请马上安排。"
+                                                      width="46mm"/>
+                                            <image width="46mm"/>
+                                        </vbox>
+                                    </hbox>
+                                </vbox>
+                            </vbox>
+                        </hbox>
+                    </vbox>
+                    <hbox margin="false,true,true,false"
+                          width="100%">
+                        <vbox margin="true"
+                              spacing="true">
+                            <hbox margin="true,false,false,false"
+                                  spacing="true"
+                                  width="100%">
+                                <hbox margin="false,false,false,true"
+                                      spacing="true"
+                                      stylename="hbox-margin-bottom-size13">
+                                    <label value="Supervisor 主管："/>
+                                    <textField id="label_16"
+                                               datasource="styleDs"
+                                               datatype="string"
+                                               height="19px"
+                                               property="xTeam"
+                                               value="Anita/YenKi"/>
+                                </hbox>
+                                <hbox align="TOP_CENTER"
+                                      margin="false,false,false,true"
+                                      spacing="true"
+                                      stylename="hbox-margin-bottom-size13">
+                                    <label value="Merchandiser  跟单："/>
+                                    <textField id="label_17"
+                                               datasource="styleDs"
+                                               datatype="string"
+                                               height="19px"
+                                               property="sOwner"
+                                               value="蔡晓芬"/>
+                                </hbox>
+                                <hbox align="TOP_RIGHT"
+                                      margin="false,true,false,false"
+                                      spacing="true">
+                                    <label value="日期："/>
+                                    <label id="label_18"
+                                           value="2018/03/09  17:57"/>
+                                </hbox>
+                            </hbox>
+                        </vbox>
+                    </hbox>
+                </cssLayout>
+            </scrollBox>
+            <cssLayout height="100%"
+                       width="100%">
+                <hbox height="30px"
+                      margin="false,false,true,false"
+                      spacing="true">
+                    <button id="addBomButton"
+                            caption="添加BOM"
+                            invoke="onAddBomButtonClick"/>
+                    <button id="deleteBomButton"
+                            caption="删除当前BOM"
+                            invoke="onDeleteBomButtonClick"/>
+                </hbox>
+                <scrollBox height="100%"
+                           margin="false,false,false,true">
+                    <tabSheet id="tabSheet"
+                              stylename="padded-tabbar">
+                        <tab id="tab1"
+                             caption="BOM1"
+                             spacing="true"/>
+                    </tabSheet>
+                </scrollBox>
+            </cssLayout>
+        </split>
+    </layout>
+</window>

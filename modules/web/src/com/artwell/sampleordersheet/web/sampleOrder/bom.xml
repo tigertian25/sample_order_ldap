@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="com.artwell.sampleordersheet.web.sampleOrder.Bom"
+        messagesPack="com.artwell.sampleordersheet.web">
+    <dsContext>
+        <groupDatasource id="seWeisDs"
+                         allowCommit="false"
+                         class="com.artwell.sampleordersheet.entity.SeWei"
+                         refreshMode="NEVER"/>
+        <datasource id="mtYarnDs"
+                    allowCommit="false"
+                    class="com.artwell.sampleordersheet.entity.MtYarn"/>
+        <groupDatasource id="yongLiangsDs"
+                         allowCommit="false"
+                         class="com.artwell.sampleordersheet.entity.YongLiang"
+                         refreshMode="NEVER"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout>
+        <scrollBox height="100%">
+            <vbox margin="true,false,false,false"
+                  spacing="true">
+                <vbox>
+                    <hbox spacing="true">
+                        <hbox>
+                            <label align="MIDDLE_LEFT"
+                                   value="BOM名称："/>
+                            <textField height="20px"
+                                       width="100px"/>
+                        </hbox>
+                        <hbox>
+                            <label align="MIDDLE_LEFT"
+                                   value="样板单号："/>
+                            <textField height="20px"
+                                       width="100px"/>
+                        </hbox>
+                        <hbox>
+                            <label align="MIDDLE_LEFT"
+                                   value="款号："/>
+                            <textField height="20px"
+                                       width="100px"/>
+                        </hbox>
+                        <hbox>
+                            <label align="MIDDLE_LEFT"
+                                   value="板类："/>
+                            <textField height="20px"
+                                       width="100px"/>
+                        </hbox>
+                        <hbox>
+                            <label align="MIDDLE_LEFT"
+                                   value="序号："/>
+                            <textField height="20px"
+                                       width="100px"/>
+                        </hbox>
+                        <label align="MIDDLE_LEFT"
+                               value="[SAMPLE] #sp-1801171, M214986(SMS sample 销售办) - BOM1[2018-03-21 17:12]"/>
+                    </hbox>
+                    <hbox margin="true,false,false,false"
+                          spacing="true">
+                        <hbox>
+                            <label align="MIDDLE_LEFT"
+                                   value="BOM用途："/>
+                            <textField height="20px"
+                                       width="100px"/>
+                        </hbox>
+                        <hbox>
+                            <label align="MIDDLE_LEFT"
+                                   value="备注："/>
+                            <textField height="20px"
+                                       width="280px"/>
+                        </hbox>
+                        <hbox>
+                            <label align="MIDDLE_LEFT"
+                                   value="批号："/>
+                            <lookupField height="20px"
+                                         width="100px"/>
+                            <lookupField height="20px"
+                                         width="100px"/>
+                            <lookupField height="20px"
+                                         width="100px"/>
+                            <lookupField height="20px"
+                                         width="100px"/>
+                        </hbox>
+                    </hbox>
+                    <hbox margin="true,false,false,false"
+                          spacing="true">
+                        <hbox>
+                            <label align="MIDDLE_LEFT"
+                                   value="色组专用："/>
+                            <lookupField height="20px"
+                                         width="100px"/>
+                            <lookupField height="20px"
+                                         width="100px"/>
+                            <lookupField height="20px"
+                                         width="100px"/>
+                            <lookupField height="20px"
+                                         width="100px"/>
+                        </hbox>
+                        <hbox>
+                            <label align="MIDDLE_LEFT"
+                                   value="不包含色组："/>
+                            <lookupField height="20px"
+                                         width="100px"/>
+                            <lookupField height="20px"
+                                         width="100px"/>
+                            <lookupField height="20px"
+                                         width="100px"/>
+                        </hbox>
+                        <hbox>
+                            <checkBox align="MIDDLE_LEFT"/>
+                            <label value="大货用料"/>
+                        </hbox>
+                        <hbox>
+                            <checkBox align="MIDDLE_LEFT"/>
+                            <label value="发织专用"/>
+                        </hbox>
+                        <hbox>
+                            <checkBox align="MIDDLE_LEFT"/>
+                            <label value="报价专用"/>
+                        </hbox>
+                    </hbox>
+                </vbox>
+                <vbox spacing="true">
+                    <groupTable id="groupTable_1"
+                                width="100%">
+                        <columns>
+                            <column id="xCBit"
+                                    caption="色位"
+                                    editable="true"/>
+                            <column id="xPart"
+                                    caption="部位"
+                                    editable="true"/>
+                            <column id="xIsOK"
+                                    caption="主色"/>
+                            <column id="xCode"
+                                    caption="代码"/>
+                            <column id="rKind_Code"
+                                    caption="类别"/>
+                            <column id="xName"
+                                    caption="名称"/>
+                            <column id="xLoss"
+                                    caption="损耗"/>
+                            <column id="xIsBySize"
+                                    caption="分码"/>
+                            <column id="xSize1"/>
+                            <column id="xSize2"/>
+                            <column id="xSize3"/>
+                            <column id="xSize4"/>
+                            <column id="xSize5"/>
+                            <column id="xSize6"/>
+                            <column id="xSize7"/>
+                            <column id="xSize8"/>
+                            <column id="xSize9"/>
+                            <column id="xSize10"/>
+                            <column id="xSize11"/>
+                            <column id="xSize12"/>
+                            <column id="xPUQty"
+                                    caption="用量件数"/>
+                            <column id="xUnit"
+                                    caption="用量单位"/>
+                            <column id="xIsBuy"
+                                    caption="需要采购"/>
+                            <column id="xSize"
+                                    caption="计价尺码"/>
+                        </columns>
+                        <rows datasource="yongLiangsDs"/>
+                    </groupTable>
+                    <groupTable id="groupTable"
+                                editable="true"
+                                width="100%">
+                        <columns>
+                            <column id="mID"/>
+                            <column id="xCBit"/>
+                            <column id="xPart"
+                                    editable="true"/>
+                            <column id="yarn"
+                                    editable="true"
+                                    generator="generateYarnCell"/>
+                        </columns>
+                        <rows datasource="seWeisDs"/>
+                    </groupTable>
+                    <richTextArea/>
+                </vbox>
+            </vbox>
+        </scrollBox>
+    </layout>
+</window>

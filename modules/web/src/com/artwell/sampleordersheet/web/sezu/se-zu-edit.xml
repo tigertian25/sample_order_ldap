@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.artwell.sampleordersheet.web.sezu.SeZuEdit"
+        datasource="seZuDs"
+        messagesPack="com.artwell.sampleordersheet.web.sezu">
+    <dsContext>
+        <datasource id="seZuDs"
+                    allowCommit="false"
+                    class="com.artwell.sampleordersheet.entity.SeZu"/>
+        <collectionDatasource id="seZusDs"
+                              class="com.artwell.sampleordersheet.entity.SeZu"
+                              refreshMode="NEVER"/>
+    </dsContext>
+    <actions>
+        <action id="save"
+                caption="Ok"
+                icon="icons/ok.png"
+                invoke="save"
+                shortcut="CTRL-ENTER"/>
+        <action id="cancel"
+                caption="Cancel"
+                description="Esc"
+                icon="icons/cancel.png"
+                invoke="cancel"/>
+    </actions>
+    <dialogMode forceDialog="true"
+                height="AUTO"
+                width="AUTO"/>
+    <layout spacing="true">
+        <vbox spacing="true">
+            <table id="seZusTable"
+                   columnControlVisible="false"
+                   contextMenuEnabled="false"
+                   editable="true"
+                   settingsEnabled="false"
+                   textSelectionEnabled="true">
+                <actions>
+                    <action id="Remove"
+                            invoke="onRemove"/>
+                    <action id="Add"
+                            invoke="onAdd"/>
+                    <action id="Cancel"
+                            invoke="onCancel"/>
+                </actions>
+                <columns>
+                    <column id="styleID"/>
+                    <column id="id"
+                            visible="false"/>
+                    <column id="xMColor"
+                            captionProperty="xMColor"
+                            editable="true"
+                            optionsDatasource="seZusDs"/>
+                    <column id="xEColor"
+                            captionProperty="xEColor"
+                            editable="true"
+                            optionsDatasource="seZusDs"/>
+                    <column id="xMColorNo"
+                            captionProperty="xMColorNo"
+                            editable="true"
+                            optionsDatasource="seZusDs"/>
+                    <column id="xQty1"
+                            captionProperty="xQty1"
+                            editable="true"
+                            optionsDatasource="seZusDs"/>
+                    <column id="xQty2"
+                            captionProperty="xQty2"
+                            editable="true"
+                            optionsDatasource="seZusDs"/>
+                    <column id="xQty3"
+                            captionProperty="xQty3"
+                            editable="true"
+                            optionsDatasource="seZusDs"/>
+                    <column id="xQty4"
+                            captionProperty="xQty4"
+                            editable="true"
+                            optionsDatasource="seZusDs"/>
+                    <column id="xQty5"
+                            captionProperty="xQty5"
+                            editable="true"
+                            optionsDatasource="seZusDs"/>
+                    <column id="xQty6"
+                            captionProperty="xQty6"
+                            editable="true"
+                            optionsDatasource="seZusDs"/>
+                    <column id="xQty7"
+                            captionProperty="xQty7"
+                            editable="true"
+                            optionsDatasource="seZusDs"/>
+                    <column id="xQty8"
+                            captionProperty="xQty8"
+                            editable="true"
+                            optionsDatasource="seZusDs"/>
+                    <column id="xQty9"
+                            captionProperty="xQty9"
+                            editable="true"
+                            optionsDatasource="seZusDs"/>
+                    <column id="xQty10"
+                            captionProperty="xQty10"
+                            editable="true"
+                            optionsDatasource="seZusDs"/>
+                    <column id="xQty11"
+                            captionProperty="xQty11"
+                            editable="true"
+                            optionsDatasource="seZusDs"/>
+                    <column id="xQty12"
+                            captionProperty="xQty12"
+                            editable="true"
+                            optionsDatasource="seZusDs"/>
+                </columns>
+                <rows datasource="seZusDs"/>
+            </table>
+            <buttonsPanel>
+                <button id="AddButton"
+                        action="seZusTable.Add"
+                        caption="Add"
+                        icon="CREATE_ACTION"/>
+                <button id="Remove"
+                        action="seZusTable.Remove"
+                        caption="Remove"/>
+                <button id="CancelButton"
+                        action="seZusTable.Cancel"
+                        caption="Close"/>
+            </buttonsPanel>
+        </vbox>
+    </layout>
+</window>

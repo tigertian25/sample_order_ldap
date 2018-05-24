@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.artwell.sampleordersheet.web.style.StyleBrowse"
+        focusComponent="stylesTable"
+        lookupComponent="stylesTable"
+        messagesPack="com.artwell.sampleordersheet.web.style">
+    <dsContext>
+        <groupDatasource id="stylesDs"
+                         allowCommit="false"
+                         class="com.artwell.sampleordersheet.entity.Style"
+                         refreshMode="NEVER"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="stylesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="stylesTable"
+                datasource="stylesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="stylesTable"
+                    columnControlVisible="false"
+                    contextMenuEnabled="false"
+                    reorderingAllowed="false"
+                    settingsEnabled="false"
+                    sortable="false"
+                    width="100%">
+            <columns>
+                <group>
+                    <column id="rCust"
+                            caption="客户名称"
+                            width="63"/>
+                    <column id="xSeason"
+                            caption="季度"
+                            width="50"/>
+                </group>
+                <column id="xStyleNo"
+                        caption="厂款号"/>
+                <column id="xCustStyleNo"
+                        caption="客款号"/>
+                <column id="xStyle"
+                        caption="描述"/>
+                <column id="xSampleType"
+                        caption="工作"/>
+                <column id="status"
+                        caption="状态"/>
+                <column id="sLastUpdate"
+                        caption="上次更新"/>
+                <column id="xDate2"
+                        caption="到期日"/>
+            </columns>
+            <rows datasource="stylesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true"/>
+        </groupTable>
+    </layout>
+</window>

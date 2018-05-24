@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" path="/sampleordersheet-web-themes" kind="src"/>
+	<classpathentry exported="true" path="/sampleordersheet-web" kind="src"/>
+	<classpathentry exported="true" path="/sampleordersheet-gui" kind="src"/>
+	<classpathentry exported="true" path="/sampleordersheet-global" kind="src"/>
+	<classpathentry exported="true" path="/sampleordersheet-core" kind="src"/>
+	<classpathentry path="bin" kind="output"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
+	<classpathentry kind="src" path="/sampleordersheet-web-themes"/>
+</classpath>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<metadata xmlns="http://schemas.haulmont.com/cuba/metadata.xsd">
+    <metadata-model namespace="sampleordersheet"
+                    root-package="com.artwell.sampleordersheet">
+        <class>com.artwell.sampleordersheet.entity.Style</class>
+        <class>com.artwell.sampleordersheet.entity.SeZu</class>
+        <class>com.artwell.sampleordersheet.entity.EtStyleSize</class>
+        <class>com.artwell.sampleordersheet.entity.SeWei</class>
+        <class>com.artwell.sampleordersheet.entity.YongLiang</class>
+    </metadata-model>
+</metadata>

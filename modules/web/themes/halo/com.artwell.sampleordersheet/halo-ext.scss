@@ -1,0 +1,40 @@
+/* Define your theme modifications inside next mixin */
+@mixin com_artwell_sampleordersheet-halo-ext {
+
+.center-size12{
+    font-size: 12px;
+    text-align: center;
+    padding:0px 7px;
+    background-color:white !important;
+}
+.left-size12{
+	font-size: 12px;
+    text-align: left;
+    padding:0px 7px;
+    background-color:white !important;
+}
+.hbox-margin-bottom-size13{
+	margin-bottom: 4px;
+	font-size: 13.5px;
+}
+.hbox-margin-bottom-size13 input{
+	border-style: none !important;
+	box-shadow: none !important;
+}
+.table-size12{
+ 	font-size: 12px;
+}
+.datefield-small div{
+	height: 19px !important;
+}
+.datefield-small div input{
+	 background-color:red ;
+	 height: 19px !important;
+	 border-style: none !important;
+	 box-shadow: none !important;
+	}
+.noborder-input input{
+	border-style: none !important;
+	box-shadow: none !important;
+	}
+}

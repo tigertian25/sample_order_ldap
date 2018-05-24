@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+    <include file="com/artwell/sampleordersheet/screens.xml"/>
+    <screen id="sampleOrder"
+            template="com/artwell/sampleordersheet/web/sampleOrder/sampleOrder.xml"/>
+    <screen id="sampleordersheet$Style.browse"
+            template="com/artwell/sampleordersheet/web/style/style-browse.xml"/>
+    <screen id="mainWindow"
+            template="com/artwell/sampleordersheet/web/screens/ext-mainwindow.xml"/>
+    <screen id="sampleordersheet$SeZu.edit"
+            template="com/artwell/sampleordersheet/web/sezu/se-zu-edit.xml"/>
+    <screen id="sampleordersheet$EtStyleSize.edit"
+            template="com/artwell/sampleordersheet/web/etstylesize/et-style-size-edit.xml"/>
+    <screen id="sampleordersheet$Style.edit"
+            template="com/artwell/sampleordersheet/web/style/style-edit.xml"/>
+    <screen id="bom"
+            template="com/artwell/sampleordersheet/web/sampleOrder/bom.xml"/>
+    <screen id="sampleordersheet$MtYarn.browse"
+            template="com/artwell/sampleordersheet/web/mtyarn/mt-yarn-browse.xml"/>
+    <screen id="loginWindow"
+            template="com/artwell/sampleordersheet/web/login/ext-loginWindow.xml"/>
+</screen-config>

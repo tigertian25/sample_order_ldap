@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ErpMapper">
+
+	<resultMap type="com.artwell.sampleordersheet.entity.Style" id="StyleMap">
+		<id column="sID" property="sID"/>
+		<result column="sNumber" property="sNumber"/>
+		<result column="xSampleType" property="xSampleType"/>
+		<result column="xDate1" property="xDate1"/>
+		<result column="xTeam" property="xTeam"/>
+		<result column="xStyleNo" property="xStyleNo"/>
+		<result column="xCustStyleNo" property="xCustStyleNo"/>
+		<result column="xSeason" property="xSeason"/>
+		<result column="rCust" property="rCust"/>
+		<result column="xGauge" property="xGauge"/>
+		<result column="xYSpec" property="xYSpec"/>
+		<result column="xStyle" property="xStyle"/>
+		<result column="xWeaveDesc" property="xWeaveDesc"/>
+		<result column="xWGT" property="xWGT"/>
+		<result column="xDate2" property="xDate2"/>
+		<result column="sOwner" property="sOwner"/>
+		<result column="xPic2" property="xPic2"/>
+		<result column="xPic" property="xPic"/>
+		<result column="xUnit" property="xUnit"/>
+		<result column="xSize1" property="xSize1"/>
+		<result column="xSize2" property="xSize2"/>
+		<result column="xSize3" property="xSize3"/>
+		<result column="xSize4" property="xSize4"/>
+		<result column="xSize5" property="xSize5"/>
+		<result column="xSize6" property="xSize6"/>
+		<result column="xSize7" property="xSize7"/>
+		<result column="xSize8" property="xSize8"/>
+		<result column="xSize9" property="xSize9"/>
+		<result column="xSize10" property="xSize10"/>
+		<result column="xSize11" property="xSize11"/>
+		<result column="xSize12" property="xSize12"/>
+		<result column="xKindName" property="xKindName"/>
+		<result column="xNote" property="xNote"/>
+		<result column="sLastUpdate" property="sLastUpdate"/>
+	</resultMap>
+	<resultMap type="com.artwell.sampleordersheet.entity.SeZu" id="SeZuMap">
+		<result column="styleID" property="styleID"/>
+		<result column="xEColor" property="xEColor"/>
+		<result column="xMColor" property="xMColor"/>
+		<result column="xMColorNo" property="xMColorNo"/>
+		<result column="xQty1" property="xQty1"/>
+		<result column="xQty2" property="xQty2"/>
+		<result column="xQty3" property="xQty3"/>
+		<result column="xQty4" property="xQty4"/>
+		<result column="xQty5" property="xQty5"/>
+		<result column="xQty6" property="xQty6"/>
+		<result column="xQty7" property="xQty7"/>
+		<result column="xQty8" property="xQty8"/>
+		<result column="xQty9" property="xQty9"/>
+		<result column="xQty10" property="xQty10"/>
+		<result column="xQty11" property="xQty11"/>
+		<result column="xQty12" property="xQty12"/>
+		<result column="sumQty" property="sumQty"/>
+	</resultMap>
+	<resultMap type="com.artwell.sampleordersheet.entity.EtStyleSize" id="EtStyleSizeMap">
+		<result column="sIndex" property="sIndex"/>
+		<result column="xPart" property="xPart"/>
+		<result column="xRule" property="xRule"/>
+		<result column="xLen1" property="xLen1"/>
+		<result column="xLen2" property="xLen2"/>
+		<result column="xLen3" property="xLen3"/>
+		<result column="xLen4" property="xLen4"/>
+		<result column="xLen5" property="xLen5"/>
+		<result column="xLen6" property="xLen6"/>
+		<result column="xLen7" property="xLen7"/>
+		<result column="xLen8" property="xLen8"/>
+		<result column="xLen9" property="xLen9"/>
+		<result column="xLen10" property="xLen10"/>
+		<result column="xLen11" property="xLen11"/>
+		<result column="xLen12" property="xLen12"/>
+		<result column="xLoss" property="xLoss"/>
+		<result column="xLoss2" property="xLoss2"/>
+	</resultMap>
+	<resultMap type="com.artwell.sampleordersheet.entity.SeWei" id="SeWeiMap">
+		<result column="mID" property="mID"/>
+		<result column="xCBit" property="xCBit"/>
+		<result column="xPart" property="xPart"/>
+	</resultMap>
+	<select id="getSeWei" parameterType="java.util.Map" resultMap="SeWeiMap">
+		SELECT
+			wa.mID,
+			sw.xCBit,
+			sw.xPart
+		FROM
+			et_style_wallot wa
+		LEFT JOIN et_style_wbom sw ON sw.dID = wa.rBOM_DID
+		WHERE
+			wa.mID = #{styleId}
+		ORDER BY
+			wa.sIndex
+	</select>
+	<!-- <select id="getYongLiang" parameterType="java.util.Map" resultMap="YongLiangMap">
+		SELECT
+			wb.xCBit,
+			wb.xPart,
+			wb.xIsOK,
+			y.xCode,
+			y.rKind_Code,
+			y.xName,
+			wb.xIsBySize,
+			wb.xPUQty,
+			wb.xUnit,
+			wb.xIsBuy,
+			wb.xSize,
+			s.xSize1,
+			s.xSize2,
+			s.xSize3,
+			s.xSize4,
+			s.xSize5,
+			s.xSize6,
+			s.xSize7,
+			s.xSize8,
+			s.xSize9,
+			s.xSize10,
+			s.xSize11,
+			s.xSize12,
+			wb.xLoss
+		FROM
+			et_style_wbom wb
+		LEFT JOIN mt_yarn y ON y.sID = wb.rYarn_ID
+		LEFT JOIN et_style e on e.sID=wb.mID
+		LEFT JOIN zt_size s on s.sId=e.rSize_ID
+		WHERE
+			wb.mID = #{styleId}
+		ORDER BY
+			wb.sIndex
+	</select> -->
+	
+	<select id="getStyleById" parameterType="java.util.Map" resultMap="StyleMap">
+		SELECT
+		
+			e.sID,
+			e.sNumber,
+			e.xProdType AS xSampleType,
+			e.xDate1,
+			c.xSymbol AS rCust,
+			e.xDate2,
+			e.xCustStyleNo,
+			e.xSeason,
+			e.xWGT,
+			e.xGauge,
+			e.xStyleNo,
+			e.xStyle,
+			e.xWeaveDesc,
+			e.xYSpec,
+			u.xusername AS sOwner,
+			e.xSizeUnit AS xUnit,
+			e.xTeam,
+			s.xSize1,
+			s.xSize2,
+			s.xSize3,
+			s.xSize4,
+			s.xSize5,
+			s.xSize6,
+			s.xSize7,
+			s.xSize8,
+			s.xSize9,
+			s.xSize10,
+			s.xSize11,
+			s.xSize12,
+			r.xCaption AS xStr1,
+			r2.xCaption AS xStr2,
+			sn.xKindName,
+			sn.xNote,
+			e.sLastUpdate
+		FROM
+			et_style AS e
+		LEFT JOIN zt_customer AS c ON e.rCust_ID = c.sID
+		LEFT JOIN zt_size AS s ON e.rSize_ID = s.sID
+		LEFT JOIN at_user AS u ON e.sOwner = u.xUserCode
+		LEFT JOIN st_accessory AS r ON e.xPic = r.sID
+		LEFT JOIN st_accessory AS r2 ON e.xPic2 = r2.sID
+		LEFT JOIN et_style_note sn ON sn.mID = e.sID
+		WHERE
+			1=1
+		<if test="styleId !=null and styleId!=''">
+			and e.sID = #{styleId}
+		</if>
+		<if test="styleId==null or styleId ==''">
+			and e.xDataType=3
+			order by e.sID desc
+		</if>
+	</select>
+	<update id="updateStyle" parameterType="com.artwell.sampleordersheet.entity.Style">
+		UPDATE   e SET 
+			e.sNumber=#{sNumber}
+			<if test="xSampleType != null and xSampleType !=''">,e.xProdType=#{xSampleType}</if>
+			<if test="xDate1 != null and xDate1 !=''">,e.xDate1=#{xDate1}</if>
+			<if test="xDate2 != null and xDate2 !=''">,e.xDate2=#{xDate2}</if>
+			<if test="xCustStyleNo != null and xCustStyleNo !=''">,e.xCustStyleNo=#{xCustStyleNo}</if>
+			<if test="xSeason != null and xSeason !=''">,e.xSeason=#{xSeason}</if>
+			<if test="xWGT != null and xWGT !=''">,e.xWGT=#{xWGT}</if>
+			<if test="xGauge != null and xGauge !=''">,e.xGauge=#{xGauge}</if>
+			<if test="xStyleNo != null and xStyleNo !=''">,e.xStyleNo=#{xStyleNo}</if>
+			<if test="xStyle != null and xStyle !=''">,e.xStyle=#{xStyle}</if>
+			<if test="xWeaveDesc != null and xWeaveDesc !=''">,e.xWeaveDesc=#{xWeaveDesc}</if>
+			<if test="xYSpec != null and xYSpec !=''">,e.xYSpec=#{xYSpec}</if>
+			<if test="xUnit != null and xUnit !=''">,e.xSizeUnit=#{xUnit}</if>
+			<if test="xTeam != null and xTeam !=''">,e.xTeam=#{xTeam}</if>
+		FROM et_style e 
+		WHERE e.sID= #{sID}
+	</update>
+	<update id="updateStyleSize" parameterType="com.artwell.sampleordersheet.entity.Style">
+		UPDATE s SET
+			 s.xSize1=#{xSize1}
+			,s.xSize2=#{xSize2}
+			,s.xSize3=#{xSize3}
+			,s.xSize4=#{xSize4}
+			,s.xSize5=#{xSize5}
+			,s.xSize6=#{xSize6}
+			,s.xSize7=#{xSize7}
+			,s.xSize8=#{xSize8}
+			,s.xSize9=#{xSize9}
+			,s.xSize10=#{xSize10}
+			,s.xSize11=#{xSize11}
+			,s.xSize12=#{xSize12}
+		FROM 
+			zt_size s LEFT JOIN et_style e ON e.rSize_ID = s.sID
+		WHERE e.sID= #{sID}
+	</update>
+	<select id="getSeZuListById" parameterType="java.util.Map" resultMap="SeZuMap">
+		SELECT
+			m.mID as styleID,
+			c.xEColor,
+			c.xMColor,
+			c.xMColorNo,
+			m.xQty1,
+			m.xQty2,
+			m.xQty3,
+			m.xQty4,
+			m.xQty5,
+			m.xQty6,
+			m.xQty7,
+			m.xQty8,
+			m.xQty9,
+			m.xQty10,
+			m.xQty11,
+			m.xQty12,
+			SUM (
+				m.xQty1 + m.xQty2 + m.xQty3 + m.xQty4 + m.xQty5 + m.xQty6 + m.xQty7 + m.xQty8 + m.xQty9 + m.xQty10 + m.xQty11 + m.xQty12
+			) AS sumQty
+		FROM
+			et_style_qty AS m
+		LEFT JOIN et_style_mcolor AS c ON m.rMColor_ID = c.sID
+		WHERE
+			m.mID = #{styleId}
+		GROUP BY
+			m.mID,c.xEColor,c.xMColor,c.xMColorNo,m.xQty1,m.xQty2,m.xQty3,m.xQty4,m.xQty5,m.xQty6,m.xQty7,m.xQty8,m.xQty9,m.xQty10,m.xQty11,m.xQty12,m.sIndex
+		ORDER BY
+			m.sIndex
+	</select>
+	<select id="getPaiSeYongLiaoById" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT
+			sw.xPart,
+			y.xName as yongLiao,
+			sw.xCBit
+		FROM
+			et_style_wbom sw
+		LEFT JOIN mt_yarn y ON y.sID = sw.rYarn_Id
+		WHERE
+			sw.mID = #{styleId}
+		ORDER BY
+			sw.sIndex
+	</select>
+	<select id="getPaiSeYongLiaoById2" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT
+			sw.xColorNo,
+			sw.xColor,
+			sw.xVatNo
+		FROM
+			et_style_wallot sw
+		WHERE
+			sw.mID = #{styleId}
+		AND sw.xCBit = #{xCBit}
+	</select>
+	
+	<select id="getEtStyleSizeById" parameterType="java.util.Map" resultMap="EtStyleSizeMap">
+		SELECT
+			ess.sIndex,
+			ess.xPart,
+			ess.xRule,
+			ess.xLen1,
+			ess.xLen2,
+			ess.xLen3,
+			ess.xLen4,
+			ess.xLen5,
+			ess.xLen6,
+			ess.xLen7,
+			ess.xLen8,
+			ess.xLen9,
+			ess.xLen10,
+			ess.xLen11,
+			ess.xLen12,
+			ess.xLoss,
+			ess.xLoss2
+		FROM
+			et_style_size ess
+		WHERE
+			ess.mID = #{styleId}
+		ORDER BY ess.sIndex
+	</select>
+
+</mapper>
